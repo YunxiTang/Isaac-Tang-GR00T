@@ -202,6 +202,21 @@ Defines which language annotations to use:
     modality_keys=["annotation.human.action.task_description"],  # Must match annotation keys in meta/modality.json
 )
 ```
+For example, if the `modality.json` has language setup as 
+```
+"annotation": {
+        "human.task_description": {
+            "original_key": "task_index"
+        }
+    }
+```
+The modality config should be given as
+```python
+"language": ModalityConfig(
+    delta_indices=[0],
+    modality_keys=["annotation.human.task_description"],
+)
+```
 
 ## Complete Example: SO-100
 

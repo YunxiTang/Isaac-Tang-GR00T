@@ -28,7 +28,7 @@ dependencies = [
     "click==8.1.8",
     "datasets==3.6.0",
     "einops==0.8.1",
-    "gymnasium==1.2.2",
+    "gymnasium==0.29.1",
     "matplotlib==3.10.1",
     "numpy==1.26.4",
     "omegaconf==2.3.0",
@@ -37,6 +37,8 @@ dependencies = [
     "wandb==0.23.0",
     "pyzmq==27.0.1",
     "deepspeed==0.17.6",
+    "jsonlines>=4.0.0",
+    "lerobot==0.3.3",
 ]
 
 [project.optional-dependencies]
@@ -55,6 +57,9 @@ include = ["gr00t*"]
 
 [tool.uv.extra-build-dependencies]
 flash-attn = ["torch==2.7.0", "numpy==1.26.4"]
+
+[tool.uv.sources]
+flash-attn = { path = "../../../Downloads/flash_attn-2.7.4.post1+cu12torch2.6cxx11abiTRUE-cp310-cp310-linux_x86_64.whl" }
 
 [tool.ruff]
 line-length = 100
