@@ -39,16 +39,13 @@ dependencies = [
     "deepspeed==0.17.6",
     "jsonlines>=4.0.0",
     "lerobot==0.3.3",
+    "nvitop>=1.6.1",
 ]
 
 [project.optional-dependencies]
 dev = [
     "ruff",
     "ipython",
-]
-tensorrt = [
-    "onnx>=1.20.0",
-    "tensorrt>=10.14.1.48.post1",
 ]
 
 [tool.setuptools.packages.find]
@@ -57,9 +54,6 @@ include = ["gr00t*"]
 
 [tool.uv.extra-build-dependencies]
 flash-attn = ["torch==2.7.0", "numpy==1.26.4"]
-
-[tool.uv.sources]
-flash-attn = { path = "../../../Downloads/flash_attn-2.7.4.post1+cu12torch2.6cxx11abiTRUE-cp310-cp310-linux_x86_64.whl" }
 
 [tool.ruff]
 line-length = 100

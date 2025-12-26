@@ -111,7 +111,7 @@ def run(config: Config):
         torch.cuda.set_device(local_rank)
         global_rank = dist.get_rank()
     else:
-        # dist.init_process_group(init_method="env://")
+        dist.init_process_group(backend="nccl") # dummy init for non-distributed setup
         local_rank = 0
         global_rank = 0
 
@@ -284,6 +284,7 @@ def run(config: Config):
             trainer.train(resume_from_checkpoint=True)
     else:
         trainer.train(resume_from_checkpoint=True)
+        # trainer.train(resume_from_checkpoint=False)
 
     # Save final model
     trainer.save_model()
